@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -23,10 +24,30 @@ body {
   border-bottom: 1px solid #e8e8e8;  /* 가로 줄 생성 + 줄 색깔 */
 }
 
-.nav h1 {
+.nav span {
   display: block;
   font-size: 20px;  /* yunkyung-Lee 글씨크기 */
   margin: 0 auto;  /* 여백 */
+}
+
+span.typing-txt {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  animation-name: cursor;  /* 애니메이션 이름 */
+  animation-duration: 0.7s;  /* 깜빡이는 시간 */
+  animation-iteration-count: infinite;  /* 반복적으로 깜빡이게 하기 */ 
+}
+
+@keyframes typingAni {
+  0%{width: 0%}
+  100%{width: 150px};
+}
+
+@keyframes cursor {
+  0%{opacity: 0;}
+  50%{opacity: 1;}
+  100%{opacity: 0;}
 }
 
 .profile {
@@ -115,7 +136,7 @@ body {
   text-align: center;  /* 글씨 중앙 배치 */
 }
 
-.grid {
+.content {
   width: 450px;
   height: auto;
   display: grid;
@@ -138,7 +159,7 @@ body {
 }
 
 .img-container:hover img {
-  opacity: 0.3;  /* 마우스 오버시 투명도 */
+  opacity: 0.3;  /* 마우스 오버시 불투명도 */
 }
 
 .footer-button {
